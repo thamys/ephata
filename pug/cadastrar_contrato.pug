@@ -1,0 +1,119 @@
+extends ./layout.pug
+block title
+    title Cadastrar Contrato - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Contratos
+    |  - Cadastrar Contrato
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/editors/summernote/summernote.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/pages/editor_summernote.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/cadastrar_contrato.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Contratos
+    li.active Cadastrar Contrato
+block content
+    // /Formulário de Cadastro
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Cadastrar Contrato
+            .heading-elements
+                ul.icons-list
+                    li
+                        a(data-action='collapse')
+                    li
+                        a(data-action='reload')
+                    li
+                        a(data-action='close')
+        .panel-body
+            form.form-horizontal(action='#')
+                .row
+                    .col-md-12
+                        .form-group
+                            label.control-label.col-md-12 Nome da Contrato:
+                            .col-md-12
+                                input.form-control(type='text', placeholder='eugene@kopyov.com')
+                .row
+                    .col-md-12
+                        .form-group
+                            label.control-label.col-md-12 Contrato:
+                            .col-md-12
+                                .summernote-height 
+                                    h2 Apollo 11
+                                    .pull-right(style='margin-left: 20px;')
+                                        img.right(alt='Saturn V carrying Apollo 11', src='../../../../c.cksource.com/a/1/img/sample.jpg')
+                                        p
+                                            strong Apollo 11
+                                            |  was the spaceflight that landed the first humans, Americans 
+                                            a(href='#') Neil Armstrong
+                                            |  and 
+                                            a(href='#') Buzz Aldrin
+                                            | , on the Moon on July 20, 1969, at 20:18 UTC. Armstrong became the first to step onto the lunar surface 6 hours later on July 21 at 02:56 UTC.
+                                        p.mb-15
+                                            | Armstrong spent about 
+                                            s three and a half
+                                            |  two and a half hours outside the spacecraft, Aldrin slightly less; and together they collected 47.5 pounds (21.5&nbsp;kg) of lunar material for return to Earth. A third member of the mission, 
+                                            a(href='#') Michael Collins
+                                            | , piloted the 
+                                            a(href='#') command
+                                            |  spacecraft alone in lunar orbit until Armstrong and Aldrin returned to it for the trip back to Earth.
+                                        h5.text-semibold Technical details
+                                        p
+                                            | Launched by a 
+                                            strong Saturn V
+                                            |  rocket from 
+                                            a(href='#') Kennedy Space Center
+                                            |  in Merritt Island, Florida on July 16, Apollo 11 was the fifth manned mission of 
+                                            a(href='#') NASA
+                                            | &apos;s Apollo program. The Apollo spacecraft had three parts:
+                                        ol
+                                            li
+                                                strong Command Module
+                                                |  with a cabin for the three astronauts which was the only part which landed back on Earth
+                                            li
+                                                strong Service Module
+                                                |  which supported the Command Module with propulsion, electrical power, oxygen and water
+                                            li
+                                                strong Lunar Module
+                                                |  for landing on the Moon.
+                                        p.mb-15
+                                            | After being sent to the Moon by the Saturn V&apos;s upper stage, the astronauts separated the spacecraft from it and travelled for three days until they entered into lunar orbit. Armstrong and Aldrin then moved into the Lunar Module and landed in the 
+                                            a(href='#') Sea of Tranquility
+                                            | . They stayed a total of about 21 and a half hours on the lunar surface. After lifting off in the upper part of the Lunar Module and rejoining Collins in the Command Module, they returned to Earth and landed in the 
+                                            a(href='#') Pacific Ocean
+                                            |  on July 24.
+                                        h5.text-semibold Misson crew
+                                        .table-responsive.mb-15
+                                            table.table.table-bordered
+                                                thead
+                                                    tr
+                                                        th Position
+                                                        th Astronaut
+                                                tbody
+                                                    tr
+                                                        td Commander
+                                                        td Neil A. Armstrong
+                                                    tr
+                                                        td Command Module Pilot
+                                                        td Michael Collins
+                                                    tr
+                                                        td Lunar Module Pilot
+                                                        td Edwin &quot;Buzz&quot; E. Aldrin, Jr.
+                                        | Source: 
+                                        a(href='http://en.wikipedia.org/wiki/Apollo_11') Wikipedia.org
+                .text-right
+                    button.btn.btn-default.fechar(type='submit')
+                        | Cancelar
+                        i.icon-cross3.position-right
+                    button.btn.btn-primary.salvar(type='submit')
+                        | Salvar
+                        i.icon-arrow-right14.position-right
+            // /2 columns form
+    // /Formulário de Cadastro

@@ -1,0 +1,83 @@
+extends ./layout.pug
+block title
+    title Séries / Anos do Colégio - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Colégio
+    |  - Séries / Anos 
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/tables/datatables/datatables.min.js')
+    script(type='text/javascript', src='assets/js/plugins/tables/datatables/extensions/tools.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/series_colegio.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Colégio
+    li.active Séries / Anos 
+block content
+    // Basic datatable
+    .panel.panel-flat
+        .panel-heading
+            h5.panel-title Listagem de Séries / Anos
+        .panel-body
+            | The 
+            code DataTables
+            |  is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function. Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example. 
+            strong Datatables support all available table styling.
+            table.table.datatable-column-search-inputs.table-striped.table-hover
+                thead
+                    tr
+                        th Série
+                        th Descrição
+                        th Quantidade de Turmas
+                        th Quantidade de Alunos
+                        th Status
+                        th.text-center Actions
+                tbody
+                    - var n = 0;
+                    while n < 8
+                        - n++
+                        tr
+                            td 2º Ano
+                            td 2º Ano do Ensino Médio
+                            td 4
+                            td 87
+                            td
+                                span.label.label-success Ativo
+                            +actions
+                tfoot
+                    tr
+                        td.select-filter  Série
+                        td.input-filter Descrição
+                        td.input-filter Quantidade de Turmas
+                        td.input-filter Quantidade de Alunos
+                        td.select-filter Status
+                        td
+mixin actions
+    td.text-center
+        ul.icons-list
+            li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    i.icon-menu9
+                ul.dropdown-menu.dropdown-menu-right
+                    li
+                        a.editar(href='editar_serie.html').text-info-600
+                            i.icon-pencil3
+                            |  Editar
+                    li
+                        a.excluir(href='#').text-danger-700
+                            i.icon-cross3
+                            |  Excluir
+                    li
+                        a.ativar(href='#').text-green-800
+                            i.icon-checkmark
+                            |  Ativar
+                    li
+                        a.inativar(href='#').text-slate-800
+                            i.icon-blocked
+                            |  Inativar

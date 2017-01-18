@@ -1,0 +1,94 @@
+extends ./layout.pug
+block title
+    title Calendário Acadêmico - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Horários e Agenda
+    |  - Calendário Acadêmico
+block theme-js-files
+    script(type='text/javascript', src='assets/js/core/libraries/jquery_ui/interactions.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/switchery.min.js')
+    script(type='text/javascript', src='assets/js/plugins/ui/moment/moment.min.js')
+    script(type='text/javascript', src='assets/js/plugins/ui/fullcalendar/fullcalendar.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/extensions/cookie.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/calendario_academico.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Horários e Agenda
+    li.active Calendário Acadêmico
+block content
+    // /Formulário de Cadastro
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Calendário Acadêmico
+            .heading-elements
+                a.btn.btn-primary(type='button' href="cadastrar_evento.html").mr-10
+                    i.icon-plus22
+                    |  Cadastrar Evento
+                a.btn.btn-primary(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                    i.icon-plus22
+                    |  Cadastrar Tipo de Evento
+        .panel-body
+            p.content-group
+                | Events that appear as background highlights can be achieved by setting an Event Object&apos;s 
+                code rendering
+                |  property to 
+                code background
+                | . Background events that are 
+                span.text-semibold timed
+                |  will only be rendered on the time slots in agenda view. Background events that are 
+                span.text-semibold all-day
+                |  will only be rendered in month view or the all-day slots of agenda view. Also the spans of time 
+                span.text-semibold not
+                |  occupied by an event can be colored by setting the 
+                code rendering
+                |  property to 
+                code inverse-background
+                | .
+            // O Calendário será carregado aqui pelo pugin
+            .fullcalendar-background-colors
+    // Vertical form modal
+    #modal_form_vertical.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') &times;
+                    h5.modal-title Cadastrar tipo de evento
+                .modal-body
+                    form.form-horizontal(action='#')
+                        .row
+                            .col-md-12.pl-20.pr-20
+                                .form-group
+                                    label.control-label Sigla:
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                                .form-group
+                                    label.control-label Título:
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                                .form-group
+                                    label.control-label Descrição:
+                                    textarea.form-control(rows='5', cols='5', placeholder='Enter your message here')
+                                .form-group
+                                    label.control-label Cor:
+                                    select.select
+                                        optgroup(label='Mountain Time Zone')
+                                            option(value='AZ') Arizona
+                                            option(value='CO') Colorado
+                                            option(value='ID') Idaho
+                                            option(value='WY') Wyoming
+                                        optgroup(label='Central Time Zone')
+                                            option(value='AL') Alabama
+                                            option(value='AR') Arkansas
+                                            option(value='KS') Kansas
+                                            option(value='KY') Kentucky
+                            // /filtered results
+                    .modal-footer
+                        button.btn.btn-link(type='button', data-dismiss='modal') Cancelar
+                        button.btn.btn-primary(type='submit') Salvar
+    // /vertical form modal

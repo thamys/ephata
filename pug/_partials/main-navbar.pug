@@ -1,0 +1,33 @@
+// Main navbar
+.navbar.bg-blue-700
+    .navbar-header
+        a.navbar-brand(href='index.html')
+            img(src='assets/images/logo_light.png', alt='')
+        ul.nav.navbar-nav.visible-xs-block
+            li
+                a(data-toggle='collapse', data-target='#navbar-mobile')
+                    i.icon-tree5
+            li
+                a.sidebar-mobile-main-toggle
+                    i.icon-paragraph-justify3
+    #navbar-mobile.navbar-collapse.collapse
+        ul.nav.navbar-nav
+            li
+                a.sidebar-control.sidebar-main-toggle.hidden-xs
+                    i.icon-paragraph-justify3
+        ul.nav.navbar-nav.navbar-right
+            li.dropdown.dropdown-user
+                a.dropdown-toggle(data-toggle='dropdown' style="color: #fff;")
+                    img(src='assets/images/demo/users/face11.jpg', alt='')
+                    span Victoria
+                    i.caret
+                ul.dropdown-menu.dropdown-menu-right
+                    li
+                        a(href='#')
+                            i.icon-cog5
+                            |  Configurações da Conta
+                    li
+                        a(href='#')
+                            i.icon-switch2
+                            |  Logout
+// /main navbar

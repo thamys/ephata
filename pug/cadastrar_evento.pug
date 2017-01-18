@@ -1,0 +1,124 @@
+extends ./layout.pug
+block title
+    title Cadastrar Evento - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Horários e Agenda
+    |  - Calendário Acadêmico
+    |  - Cadastrar Evento
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/inputs/duallistbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/pages/form_layouts.js')
+    script(type='text/javascript', src='assets/js/pages/form_dual_listboxes.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/cadastrar_evento.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Horários e Agenda
+    li Calendário Acadêmico
+    li.active Cadastrar Evento
+block content
+    // /Formulário de Cadastro
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Cadastrar Evento
+        .panel-body
+            form.form-horizontal(action='#')
+                .row
+                    .col-md-6
+                        .form-group
+                            label.col-lg-3.control-label Título do Evento:
+                            .col-lg-9
+                                input.form-control(type='text', placeholder='eugene@kopyov.com')
+                        .form-group
+                            label.col-lg-3.control-label Descrição:
+                            .col-lg-9
+                                textarea.form-control(rows='5', cols='5', placeholder='Enter your message here')
+                    .col-md-6
+                        .form-group
+                            label.col-lg-3.control-label Tipo de Evento
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                        .form-group
+                            label.col-lg-3.control-label
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                        .form-group
+                            label.col-lg-3.control-label Dia Letivo?
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                        .form-group
+                                label.col-lg-3.control-label Duração:
+                                .col-lg-9
+                                    .row
+                                        .col-md-6
+                                            input.form-control(type='text', placeholder='Data Início')
+                                        .col-md-6
+                                            input.form-control(type='text', placeholder='Data Fim')
+                h6.panel-title Selecionar Turma(s):
+                p 
+                select.form-control.listbox-filtered-results(multiple='multiple')
+                    option(value='option1') Classical mechanics
+                    option(value='option2') Electromagnetism
+                    option(value='option4') Relativity
+                    option(value='option5') Quantum mechanics
+                    option(value='option7') Astrophysics
+                    option(value='option8') Biophysics
+                    option(value='option9') Chemical physics
+                    option(value='option10') Econophysics
+                    option(value='option11') Geophysics
+                    option(value='option12') Medical physics
+                    option(value='option13') Physical chemistry
+                    option(value='option14') Continuum mechanics
+                    option(value='option15') Electrodynamics
+                    option(value='option16') Quantum field theory
+                    option(value='option17') Scattering theory
+                    option(value='option18') Chaos theory
+                    option(value='option19') Newton&apos;s laws of motion
+                    option(value='option20') Thermodynamics
+                    // /filtered results
+                .text-right
+                    button.btn.btn-default.fechar(type='submit')
+                        | Cancelar
+                        i.icon-cross3.position-right
+                    button.btn.btn-primary.salvar(type='submit')
+                        | Salvar
+                        i.icon-arrow-right14.position-right
+            // /2 columns form
+    // /Formulário de Cadastro

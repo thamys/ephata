@@ -1,0 +1,25 @@
+doctype html
+html(lang='en')
+    include ./_partials/head.pug
+    body
+        include ./_partials/main-navbar.pug
+        // Page container
+        .page-container
+            // Page content
+            .page-content
+                include ./_partials/main-sidebar.pug
+                // Main content
+                .content-wrapper
+                    // Page header
+                    include ./_partials/page-header.pug
+                    // /page-header
+                    // Content-area
+                    .content
+                        block content
+                            h1 Todo o conteúdo aqui.
+                        // Footer
+                        include ./_partials/footer.pug
+                    // /content area
+                // /main content
+            // /page content
+        // /page container

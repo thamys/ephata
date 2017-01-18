@@ -1,0 +1,1529 @@
+extends ./layout.pug
+block title
+    title Cerebelo Curso Nota 10
+block page-title
+    span.text-semibold Home
+    |  - Dashboard
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li.active Dashboard
+block content
+    // Main charts
+    .row
+        .col-lg-7
+            // Traffic sources
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Traffic sources
+                    .heading-elements
+                        form.heading-form(action='#')
+                            .form-group
+                                label.checkbox-inline.checkbox-switchery.checkbox-right.switchery-xs
+                                    input.switch(type='checkbox', checked='checked')
+                                    Live update:
+                .container-fluid
+                    .row
+                        .col-lg-4
+                            ul.list-inline.text-center
+                                li
+                                    a.btn.border-teal.text-teal.btn-flat.btn-rounded.btn-icon.btn-xs.valign-text-bottom(href='#')
+                                        i.icon-plus3
+                                li.text-left
+                                    .text-semibold New visitors
+                                    .text-muted 2,349 avg
+                            .col-lg-10.col-lg-offset-1
+                                #new-visitors.content-group
+                        .col-lg-4
+                            ul.list-inline.text-center
+                                li
+                                    a.btn.border-warning-400.text-warning-400.btn-flat.btn-rounded.btn-icon.btn-xs.valign-text-bottom(href='#')
+                                        i.icon-watch2
+                                li.text-left
+                                    .text-semibold New sessions
+                                    .text-muted 08:20 avg
+                            .col-lg-10.col-lg-offset-1
+                                #new-sessions.content-group
+                        .col-lg-4
+                            ul.list-inline.text-center
+                                li
+                                    a.btn.border-indigo-400.text-indigo-400.btn-flat.btn-rounded.btn-icon.btn-xs.valign-text-bottom(href='#')
+                                        i.icon-people
+                                li.text-left
+                                    .text-semibold Total online
+                                    .text-muted
+                                        span.status-mark.border-success.position-left
+                                        |  5,378 avg
+                            .col-lg-10.col-lg-offset-1
+                                #total-online.content-group
+                #traffic-sources.position-relative
+            // /traffic sources
+        .col-lg-5
+            // Sales stats
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Sales statistics
+                    .heading-elements
+                        form.heading-form(action='#')
+                            .form-group
+                                select#select_date.change-date.select-sm
+                                    optgroup(label="<i class='icon-watch pull-right'></i> Time period")
+                                        option(value='val1') June, 29 - July, 5
+                                        option(value='val2') June, 22 - June 28
+                                        option(value='val3', selected='selected') June, 15 - June, 21
+                                        option(value='val4') June, 8 - June, 14
+                .container-fluid
+                    .row.text-center
+                        .col-md-4
+                            .content-group
+                                h5.text-semibold.no-margin
+                                    i.icon-calendar5.position-left.text-slate
+                                    |  5,689
+                                span.text-muted.text-size-small orders weekly
+                        .col-md-4
+                            .content-group
+                                h5.text-semibold.no-margin
+                                    i.icon-calendar52.position-left.text-slate
+                                    |  32,568
+                                span.text-muted.text-size-small orders monthly
+                        .col-md-4
+                            .content-group
+                                h5.text-semibold.no-margin
+                                    i.icon-cash3.position-left.text-slate
+                                    |  $23,464
+                                span.text-muted.text-size-small average revenue
+                #app_sales.content-group-sm
+                #monthly-sales-stats
+            // /sales stats
+    // /main charts
+    // Dashboard content
+    .row
+        .col-lg-8
+            // Marketing campaigns
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Marketing campaigns
+                    .heading-elements
+                        span.label.bg-success.heading-text 28 active
+                        ul.icons-list
+                            li.dropdown
+                                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                    i.icon-menu7
+                                    |  
+                                    span.caret
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li
+                                        a(href='#')
+                                            i.icon-sync
+                                            |  Update data
+                                    li
+                                        a(href='#')
+                                            i.icon-list-unordered
+                                            |  Detailed log
+                                    li
+                                        a(href='#')
+                                            i.icon-pie5
+                                            |  Statistics
+                                    li.divider
+                                    li
+                                        a(href='#')
+                                            i.icon-cross3
+                                            |  Clear list
+                .table-responsive
+                    table.table.table-lg.text-nowrap
+                        tbody
+                            tr
+                                td.col-md-5
+                                    .media-left
+                                        #campaigns-donut
+                                    .media-left
+                                        h5.text-semibold.no-margin
+                                            | 38,289 
+                                            small.text-success.text-size-base
+                                                i.icon-arrow-up12
+                                                |  (+16.2%)
+                                        ul.list-inline.list-inline-condensed.no-margin
+                                            li
+                                                span.status-mark.border-success
+                                            li
+                                                span.text-muted May 12, 12:30 am
+                                td.col-md-5
+                                    .media-left
+                                        #campaign-status-pie
+                                    .media-left
+                                        h5.text-semibold.no-margin
+                                            | 2,458 
+                                            small.text-danger.text-size-base
+                                                i.icon-arrow-down12
+                                                |  (- 4.9%)
+                                        ul.list-inline.list-inline-condensed.no-margin
+                                            li
+                                                span.status-mark.border-danger
+                                            li
+                                                span.text-muted Jun 4, 4:00 am
+                                td.text-right.col-md-2
+                                    a.btn.bg-indigo-300(href='#')
+                                        i.icon-statistics.position-left
+                                        |  View report
+                .table-responsive
+                    table.table.text-nowrap
+                        thead
+                            tr
+                                th Campaign
+                                th.col-md-2 Client
+                                th.col-md-2 Changes
+                                th.col-md-2 Budget
+                                th.col-md-2 Status
+                                th.text-center(style='width: 20px;')
+                                    i.icon-arrow-down12
+                        tbody
+                            tr.active.border-double
+                                td(colspan='5') Today
+                                td.text-right
+                                    span#today-progress.progress-meter(data-progress='30')
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/facebook.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Facebook
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            02:00 - 03:00
+                                td
+                                    span.text-muted Mintlime
+                                td
+                                    span.text-success-600
+                                        i.icon-stats-growth2.position-left
+                                        |  2.43%
+                                td
+                                    h6.text-semibold $5,489
+                                td
+                                    span.label.bg-blue Active
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/youtube.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Youtube videos
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-danger.position-left
+                                            13:00 - 14:00
+                                td
+                                    span.text-muted CDsoft
+                                td
+                                    span.text-success-600
+                                        i.icon-stats-growth2.position-left
+                                        |  3.12%
+                                td
+                                    h6.text-semibold $2,592
+                                td
+                                    span.label.bg-danger Closed
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/spotify.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Spotify ads
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-grey-400.position-left
+                                            10:00 - 11:00
+                                td
+                                    span.text-muted Diligence
+                                td
+                                    span.text-danger
+                                        i.icon-stats-decline2.position-left
+                                        |  - 8.02%
+                                td
+                                    h6.text-semibold $1,268
+                                td
+                                    span.label.bg-grey-400 Hold
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/twitter.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Twitter ads
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-grey-400.position-left
+                                            04:00 - 05:00
+                                td
+                                    span.text-muted Deluxe
+                                td
+                                    span.text-success-600
+                                        i.icon-stats-growth2.position-left
+                                        |  2.78%
+                                td
+                                    h6.text-semibold $7,467
+                                td
+                                    span.label.bg-grey-400 Hold
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr.active.border-double
+                                td(colspan='5') Yesterday
+                                td.text-right
+                                    span#yesterday-progress.progress-meter(data-progress='65')
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/bing.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Bing campaign
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-success.position-left
+                                            15:00 - 16:00
+                                td
+                                    span.text-muted Metrics
+                                td
+                                    span.text-danger
+                                        i.icon-stats-decline2.position-left
+                                        |  - 5.78%
+                                td
+                                    h6.text-semibold $970
+                                td
+                                    span.label.bg-success-400 Pending
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropup
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/amazon.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Amazon ads
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-danger.position-left
+                                            18:00 - 19:00
+                                td
+                                    span.text-muted Blueish
+                                td
+                                    span.text-success-600
+                                        i.icon-stats-growth2.position-left
+                                        |  6.79%
+                                td
+                                    h6.text-semibold $1,540
+                                td
+                                    span.label.bg-blue Active
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropup
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/brands/dribbble.png', alt='')
+                                    .media-left
+                                        div
+                                            a.text-default.text-semibold(href='#') Dribbble ads
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            20:00 - 21:00
+                                td
+                                    span.text-muted Teamable
+                                td
+                                    span.text-danger
+                                        i.icon-stats-decline2.position-left
+                                        |  9.83%
+                                td
+                                    h6.text-semibold $8,350
+                                td
+                                    span.label.bg-danger Closed
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropup
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-stats
+                                                        |  View statement
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-text2
+                                                        |  Edit campaign
+                                                li
+                                                    a(href='#')
+                                                        i.icon-file-locked
+                                                        |  Disable campaign
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-gear
+                                                        |  Settings
+            // /marketing campaigns
+            // Quick stats boxes
+            .row
+                .col-lg-4
+                    // Members online
+                    .panel.bg-teal-400
+                        .panel-body
+                            .heading-elements
+                                span.heading-text.badge.bg-teal-800 +53,6%
+                            h3.no-margin 3,450
+                            Members online
+                            .text-muted.text-size-small 489 avg
+                        .container-fluid
+                            #members-online
+                    // /members online
+                .col-lg-4
+                    // Current server load
+                    .panel.bg-pink-400
+                        .panel-body
+                            .heading-elements
+                                ul.icons-list
+                                    li.dropdown
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                            i.icon-cog3
+                                            |  
+                                            span.caret
+                                        ul.dropdown-menu.dropdown-menu-right
+                                            li
+                                                a(href='#')
+                                                    i.icon-sync
+                                                    |  Update data
+                                            li
+                                                a(href='#')
+                                                    i.icon-list-unordered
+                                                    |  Detailed log
+                                            li
+                                                a(href='#')
+                                                    i.icon-pie5
+                                                    |  Statistics
+                                            li
+                                                a(href='#')
+                                                    i.icon-cross3
+                                                    |  Clear list
+                            h3.no-margin 49.4%
+                            Current server load
+                            .text-muted.text-size-small 34.6% avg
+                        #server-load
+                    // /current server load
+                .col-lg-4
+                    // Today's revenue
+                    .panel.bg-blue-400
+                        .panel-body
+                            .heading-elements
+                                ul.icons-list
+                                    li
+                                        a(data-action='reload')
+                            h3.no-margin $18,390
+                            | Today&apos;s revenue
+                            .text-muted.text-size-small $37,578 avg
+                        #today-revenue
+                    // /today's revenue
+            // /quick stats boxes
+            // Support tickets
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Support tickets
+                    .heading-elements
+                        button.btn.btn-link.daterange-ranges.heading-btn.text-semibold(type='button')
+                            i.icon-calendar3.position-left
+                            |  
+                            span
+                            |  
+                            b.caret
+                .table-responsive
+                    table.table.table-xlg.text-nowrap
+                        tbody
+                            tr
+                                td.col-md-4
+                                    .media-left.media-middle
+                                        #tickets-status
+                                    .media-left
+                                        h5.text-semibold.no-margin
+                                            | 14,327 
+                                            small.text-success.text-size-base
+                                                i.icon-arrow-up12
+                                                |  (+2.9%)
+                                        span.text-muted
+                                            span.status-mark.border-success.position-left
+                                            |  Jun 16, 10:00 am
+                                td.col-md-3
+                                    .media-left.media-middle
+                                        a.btn.border-indigo-400.text-indigo-400.btn-flat.btn-rounded.btn-xs.btn-icon(href='#')
+                                            i.icon-alarm-add
+                                    .media-left
+                                        h5.text-semibold.no-margin
+                                            | 1,132 
+                                            small.display-block.no-margin total tickets
+                                td.col-md-3
+                                    .media-left.media-middle
+                                        a.btn.border-indigo-400.text-indigo-400.btn-flat.btn-rounded.btn-xs.btn-icon(href='#')
+                                            i.icon-spinner11
+                                    .media-left
+                                        h5.text-semibold.no-margin
+                                            | 06:25:00 
+                                            small.display-block.no-margin response time
+                                td.text-right.col-md-2
+                                    a.btn.bg-teal-400(href='#')
+                                        i.icon-statistics.position-left
+                                        |  Report
+                .table-responsive
+                    table.table.text-nowrap
+                        thead
+                            tr
+                                th(style='width: 50px') Due
+                                th(style='width: 300px;') User
+                                th Description
+                                th.text-center(style='width: 20px;')
+                                    i.icon-arrow-down12
+                        tbody
+                            tr.active.border-double
+                                td(colspan='3') Active tickets
+                                td.text-right
+                                    span.badge.bg-blue 24
+                            tr
+                                td.text-center
+                                    h6.no-margin
+                                        | 12 
+                                        small.display-block.text-size-small.no-margin hours
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-teal-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.text-semibold.letter-icon-title(href='#') Annabelle Doney
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            |  Active
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        span.text-semibold [#1183] Workaround for OS X selects printing bug
+                                        span.display-block.text-muted Chrome fixed the bug several versions ago, thus rendering this...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-checkmark3.text-success
+                                                        |  Resolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    h6.no-margin
+                                        | 16 
+                                        small.display-block.text-size-small.no-margin hours
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/demo/users/face15.jpg', alt='')
+                                    .media-body
+                                        a.display-inline-block.text-default.text-semibold.letter-icon-title(href='#') Chris Macintyre
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            |  Active
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        span.text-semibold [#1249] Vertically center carousel controls
+                                        span.display-block.text-muted Try any carousel control and reduce the screen width below...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-checkmark3.text-success
+                                                        |  Resolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    h6.no-margin
+                                        | 20 
+                                        small.display-block.text-size-small.no-margin hours
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-blue.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.text-semibold.letter-icon-title(href='#') Robert Hauber
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            |  Active
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        span.text-semibold [#1254] Inaccurate small pagination height
+                                        span.display-block.text-muted The height of pagination elements is not consistent with...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-checkmark3.text-success
+                                                        |  Resolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    h6.no-margin
+                                        | 40 
+                                        small.display-block.text-size-small.no-margin hours
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-warning-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.text-semibold.letter-icon-title(href='#') Dex Sponheim
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-blue.position-left
+                                            |  Active
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        span.text-semibold [#1184] Round grid column gutter operations
+                                        span.display-block.text-muted Left rounds up, right rounds down. should keep everything...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-checkmark3.text-success
+                                                        |  Resolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr.active.border-double
+                                td(colspan='3') Resolved tickets
+                                td.text-right
+                                    span.badge.bg-success 42
+                            tr
+                                td.text-center
+                                    i.icon-checkmark3.text-success
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-success-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.letter-icon-title(href='#') Alan Macedo
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-success.position-left
+                                            |  Resolved
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        | [#1046] Avoid some unnecessary HTML string
+                                        span.display-block.text-muted Rather than building a string of HTML and then parsing it...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-plus3.text-blue
+                                                        |  Unresolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    i.icon-checkmark3.text-success
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-pink-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.letter-icon-title(href='#') Brett Castellano
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-success.position-left
+                                            |  Resolved
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        | [#1038] Update json configuration
+                                        span.display-block.text-muted
+                                            | The 
+                                            code files
+                                            |  property is necessary to override the files property...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-plus3.text-blue
+                                                        |  Unresolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    i.icon-checkmark3.text-success
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/demo/users/face3.jpg', alt='')
+                                    .media-body
+                                        a.display-inline-block.text-default(href='#') Roxanne Forbes
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-success.position-left
+                                            |  Resolved
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        | [#1034] Tooltip multiple event
+                                        span.display-block.text-muted Fix behavior when using tooltips and popovers that are...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropdown
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-plus3.text-blue
+                                                        |  Unresolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr.active.border-double
+                                td(colspan='3') Closed tickets
+                                td.text-right
+                                    span.badge.bg-danger 37
+                            tr
+                                td.text-center
+                                    i.icon-cross2.text-danger-400
+                                td
+                                    .media-left.media-middle
+                                        a(href='#')
+                                            img.img-circle.img-xs(src='assets/images/demo/users/face8.jpg', alt='')
+                                    .media-body
+                                        a.display-inline-block.text-default(href='#') Mitchell Sitkin
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-danger.position-left
+                                            |  Closed
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        | [#1040] Account for static form controls in form group
+                                        span.display-block.text-muted Resizes control label&apos;s font-size and account for the standard...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropup
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-reload-alt.text-blue
+                                                        |  Reopen issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+                            tr
+                                td.text-center
+                                    i.icon-cross2.text-danger
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-brown-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        a.display-inline-block.text-default.letter-icon-title(href='#') Katleen Jensen
+                                        .text-muted.text-size-small
+                                            span.status-mark.border-danger.position-left
+                                            |  Closed
+                                td
+                                    a.text-default.display-inline-block(href='#')
+                                        | [#1038] Proper sizing of form control feedback
+                                        span.display-block.text-muted Feedback icon sizing inside a larger/smaller form-group...
+                                td.text-center
+                                    ul.icons-list
+                                        li.dropup
+                                            a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                                i.icon-menu7
+                                            ul.dropdown-menu.dropdown-menu-right
+                                                li
+                                                    a(href='#')
+                                                        i.icon-undo
+                                                        |  Quick reply
+                                                li
+                                                    a(href='#')
+                                                        i.icon-history
+                                                        |  Full history
+                                                li.divider
+                                                li
+                                                    a(href='#')
+                                                        i.icon-plus3.text-blue
+                                                        |  Unresolve issue
+                                                li
+                                                    a(href='#')
+                                                        i.icon-cross2.text-danger
+                                                        |  Close issue
+            // /support tickets
+            // Latest posts
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Latest posts
+                    .heading-elements
+                        ul.icons-list
+                            li
+                                a(data-action='collapse')
+                            li
+                                a(data-action='reload')
+                            li
+                                a(data-action='close')
+                .panel-body
+                    .row
+                        .col-lg-6
+                            ul.media-list.content-group
+                                li.media.stack-media-on-mobile
+                                    .media-left
+                                        .thumb
+                                            a(href='#')
+                                                img.img-responsive.img-rounded.media-preview(src='assets/images/demo/flat/1.png', alt='')
+                                                span.zoom-image
+                                                    i.icon-play3
+                                    .media-body
+                                        h6.media-heading
+                                            a(href='#') Up unpacked friendly
+                                        ul.list-inline.list-inline-separate.text-muted.mb-5
+                                            li
+                                                i.icon-book-play.position-left
+                                                |  Video tutorials
+                                            li 14 minutes ago
+                                        The him father parish looked has sooner. Attachment frequently gay terminated son...
+                                li.media.stack-media-on-mobile
+                                    .media-left
+                                        .thumb
+                                            a(href='#')
+                                                img.img-responsive.img-rounded.media-preview(src='assets/images/demo/flat/21.png', alt='')
+                                                span.zoom-image
+                                                    i.icon-play3
+                                    .media-body
+                                        h6.media-heading
+                                            a(href='#') It allowance prevailed
+                                        ul.list-inline.list-inline-separate.text-muted.mb-5
+                                            li
+                                                i.icon-book-play.position-left
+                                                |  Video tutorials
+                                            li 12 days ago
+                                        Alteration literature to or an sympathize mr imprudence. Of is ferrars subject as enjoyed...
+                        .col-lg-6
+                            ul.media-list.content-group
+                                li.media.stack-media-on-mobile
+                                    .media-left
+                                        .thumb
+                                            a(href='#')
+                                                img.img-responsive.img-rounded.media-preview(src='assets/images/demo/flat/12.png', alt='')
+                                                span.zoom-image
+                                                    i.icon-play3
+                                    .media-body
+                                        h6.media-heading
+                                            a(href='#') Case read they must
+                                        ul.list-inline.list-inline-separate.text-muted.mb-5
+                                            li
+                                                i.icon-book-play.position-left
+                                                |  Video tutorials
+                                            li 20 hours ago
+                                        On it differed repeated wandered required in. Then girl neat why yet knew rose spot...
+                                li.media.stack-media-on-mobile
+                                    .media-left
+                                        .thumb
+                                            a(href='#')
+                                                img.img-responsive.img-rounded.media-preview(src='assets/images/demo/flat/15.png', alt='')
+                                                span.zoom-image
+                                                    i.icon-play3
+                                    .media-body
+                                        h6.media-heading
+                                            a(href='#') Too carriage attended
+                                        ul.list-inline.list-inline-separate.text-muted.mb-5
+                                            li
+                                                i.icon-book-play.position-left
+                                                |  FAQ section
+                                            li 2 days ago
+                                        Marianne or husbands if at stronger ye. Considered is as middletons uncommonly...
+            // /latest posts
+        .col-lg-4
+            // Progress counters
+            .row
+                .col-md-6
+                    // Available hours
+                    .panel.text-center
+                        .panel-body
+                            .heading-elements
+                                ul.icons-list
+                                    li.dropdown.text-muted
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                            i.icon-cog3
+                                            |  
+                                            span.caret
+                                        ul.dropdown-menu.dropdown-menu-right
+                                            li
+                                                a(href='#')
+                                                    i.icon-sync
+                                                    |  Update data
+                                            li
+                                                a(href='#')
+                                                    i.icon-list-unordered
+                                                    |  Detailed log
+                                            li
+                                                a(href='#')
+                                                    i.icon-pie5
+                                                    |  Statistics
+                                            li
+                                                a(href='#')
+                                                    i.icon-cross3
+                                                    |  Clear list
+                            // Progress counter
+                            #hours-available-progress.content-group-sm.svg-center.position-relative
+                            // /progress counter
+                            // Bars
+                            #hours-available-bars
+                            // /bars
+                    // /available hours
+                .col-md-6
+                    // Productivity goal
+                    .panel.text-center
+                        .panel-body
+                            .heading-elements
+                                ul.icons-list
+                                    li.dropdown.text-muted
+                                        a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                            i.icon-cog3
+                                            |  
+                                            span.caret
+                                        ul.dropdown-menu.dropdown-menu-right
+                                            li
+                                                a(href='#')
+                                                    i.icon-sync
+                                                    |  Update data
+                                            li
+                                                a(href='#')
+                                                    i.icon-list-unordered
+                                                    |  Detailed log
+                                            li
+                                                a(href='#')
+                                                    i.icon-pie5
+                                                    |  Statistics
+                                            li
+                                                a(href='#')
+                                                    i.icon-cross3
+                                                    |  Clear list
+                            // Progress counter
+                            #goal-progress.content-group-sm.svg-center.position-relative
+                            // /progress counter
+                            // Bars
+                            #goal-bars
+                            // /bars
+                    // /productivity goal
+            // /progress counters
+            // Daily sales
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Daily sales stats
+                    .heading-elements
+                        span.heading-text
+                            | Balance: 
+                            span.text-bold.text-danger-600.position-right $4,378
+                        ul.icons-list
+                            li.dropdown.text-muted
+                                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                                    i.icon-cog3
+                                    |  
+                                    span.caret
+                                ul.dropdown-menu.dropdown-menu-right
+                                    li
+                                        a(href='#')
+                                            i.icon-sync
+                                            |  Update data
+                                    li
+                                        a(href='#')
+                                            i.icon-list-unordered
+                                            |  Detailed log
+                                    li
+                                        a(href='#')
+                                            i.icon-pie5
+                                            |  Statistics
+                                    li.divider
+                                    li
+                                        a(href='#')
+                                            i.icon-cross3
+                                            |  Clear list
+                .panel-body
+                    #sales-heatmap
+                .table-responsive
+                    table.table.text-nowrap
+                        thead
+                            tr
+                                th Application
+                                th Time
+                                th Price
+                        tbody
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-primary-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        .media-heading
+                                            a.letter-icon-title(href='#') Sigma application
+                                        .text-muted.text-size-small
+                                            i.icon-checkmark3.text-size-mini.position-left
+                                            |  New order
+                                td
+                                    span.text-muted.text-size-small 06:28 pm
+                                td
+                                    h6.text-semibold.no-margin $49.90
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-danger-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        .media-heading
+                                            a.letter-icon-title(href='#') Alpha application
+                                        .text-muted.text-size-small
+                                            i.icon-spinner11.text-size-mini.position-left
+                                            |  Renewal
+                                td
+                                    span.text-muted.text-size-small 04:52 pm
+                                td
+                                    h6.text-semibold.no-margin $90.50
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-indigo-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        .media-heading
+                                            a.letter-icon-title(href='#') Delta application
+                                        .text-muted.text-size-small
+                                            i.icon-lifebuoy.text-size-mini.position-left
+                                            |  Support
+                                td
+                                    span.text-muted.text-size-small 01:26 pm
+                                td
+                                    h6.text-semibold.no-margin $60.00
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-success-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        .media-heading
+                                            a.letter-icon-title(href='#') Omega application
+                                        .text-muted.text-size-small
+                                            i.icon-lifebuoy.text-size-mini.position-left
+                                            |  Support
+                                td
+                                    span.text-muted.text-size-small 11:46 am
+                                td
+                                    h6.text-semibold.no-margin $55.00
+                            tr
+                                td
+                                    .media-left.media-middle
+                                        a.btn.bg-danger-400.btn-rounded.btn-icon.btn-xs(href='#')
+                                            span.letter-icon
+                                    .media-body
+                                        .media-heading
+                                            a.letter-icon-title(href='#') Alpha application
+                                        .text-muted.text-size-small
+                                            i.icon-spinner11.text-size-mini.position-left
+                                            |  Renewal
+                                td
+                                    span.text-muted.text-size-small 10:29 am
+                                td
+                                    h6.text-semibold.no-margin $90.50
+            // /daily sales
+            // My messages
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title My messages
+                    .heading-elements
+                        span.heading-text
+                            i.icon-history.text-warning.position-left
+                            |  Jul 7, 10:30
+                        span.label.bg-success.heading-text Online
+                // Numbers
+                .container-fluid
+                    .row.text-center
+                        .col-md-4
+                            .content-group
+                                h6.text-semibold.no-margin
+                                    i.icon-clipboard3.position-left.text-slate
+                                    |  2,345
+                                span.text-muted.text-size-small this week
+                        .col-md-4
+                            .content-group
+                                h6.text-semibold.no-margin
+                                    i.icon-calendar3.position-left.text-slate
+                                    |  3,568
+                                span.text-muted.text-size-small this month
+                        .col-md-4
+                            .content-group
+                                h6.text-semibold.no-margin
+                                    i.icon-comments.position-left.text-slate
+                                    |  32,693
+                                span.text-muted.text-size-small all messages
+                // /numbers
+                // Area chart
+                #messages-stats
+                // /area chart
+                // Tabs
+                ul.nav.nav-lg.nav-tabs.nav-justified.no-margin.no-border-radius.bg-indigo-400.border-top.border-top-indigo-300
+                    li.active
+                        a.text-size-small.text-uppercase(href='#messages-tue', data-toggle='tab')
+                            | Tuesday
+                    li
+                        a.text-size-small.text-uppercase(href='#messages-mon', data-toggle='tab')
+                            | Monday
+                    li
+                        a.text-size-small.text-uppercase(href='#messages-fri', data-toggle='tab')
+                            | Friday
+                // /tabs
+                // Tabs content
+                .tab-content
+                    #messages-tue.tab-pane.active.fade.in.has-padding
+                        ul.media-list
+                            li.media
+                                .media-left
+                                    img.img-circle.img-xs(src='assets/images/demo/users/face10.jpg', alt='')
+                                    span.badge.bg-danger-400.media-badge 8
+                                .media-body
+                                    a(href='#')
+                                        | James Alexander
+                                        span.media-annotation.pull-right 14:58
+                                    span.display-block.text-muted The constitutionally inventoried precariously...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-xs(src='assets/images/demo/users/face3.jpg', alt='')
+                                    span.badge.bg-danger-400.media-badge 6
+                                .media-body
+                                    a(href='#')
+                                        | Margo Baker
+                                        span.media-annotation.pull-right 12:16
+                                    span.display-block.text-muted Pinched a well more moral chose goodness...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-xs(src='assets/images/demo/users/face24.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Jeremy Victorino
+                                        span.media-annotation.pull-right 09:48
+                                    span.display-block.text-muted Pert thickly mischievous clung frowned well...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-xs(src='assets/images/demo/users/face4.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Beatrix Diaz
+                                        span.media-annotation.pull-right 05:54
+                                    span.display-block.text-muted Nightingale taped hello bucolic fussily cardinal...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-xs(src='assets/images/demo/users/face25.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Richard Vango
+                                        span.media-annotation.pull-right 01:43
+                                    span.display-block.text-muted Amidst roadrunner distantly pompously where...
+                    #messages-mon.tab-pane.fade.has-padding
+                        ul.media-list
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face2.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Isak Temes
+                                        span.media-annotation.pull-right Tue, 19:58
+                                    span.display-block.text-muted Reasonable palpably rankly expressly grimy...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face7.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Vittorio Cosgrove
+                                        span.media-annotation.pull-right Tue, 16:35
+                                    span.display-block.text-muted Arguably therefore more unexplainable fumed...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face18.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Hilary Talaugon
+                                        span.media-annotation.pull-right Tue, 12:16
+                                    span.display-block.text-muted Nicely unlike porpoise a kookaburra past more...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face14.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Bobbie Seber
+                                        span.media-annotation.pull-right Tue, 09:20
+                                    span.display-block.text-muted Before visual vigilantly fortuitous tortoise...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face8.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Walther Laws
+                                        span.media-annotation.pull-right Tue, 03:29
+                                    span.display-block.text-muted Far affecting more leered unerringly dishonest...
+                    #messages-fri.tab-pane.fade.has-padding
+                        ul.media-list
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face15.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Owen Stretch
+                                        span.media-annotation.pull-right Mon, 18:12
+                                    span.display-block.text-muted Tardy rattlesnake seal raptly earthworm...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face12.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Jenilee Mcnair
+                                        span.media-annotation.pull-right Mon, 14:03
+                                    span.display-block.text-muted Since hello dear pushed amid darn trite...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face22.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Alaster Jain
+                                        span.media-annotation.pull-right Mon, 13:59
+                                    span.display-block.text-muted Dachshund cardinal dear next jeepers well...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face24.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Sigfrid Thisted
+                                        span.media-annotation.pull-right Mon, 09:26
+                                    span.display-block.text-muted Lighted wolf yikes less lemur crud grunted...
+                            li.media
+                                .media-left
+                                    img.img-circle.img-sm(src='assets/images/demo/users/face17.jpg', alt='')
+                                .media-body
+                                    a(href='#')
+                                        | Sherilyn Mckee
+                                        span.media-annotation.pull-right Mon, 06:38
+                                    span.display-block.text-muted Less unicorn a however careless husky...
+                // /tabs content
+            // /my messages
+            // Daily financials
+            .panel.panel-flat
+                .panel-heading
+                    h6.panel-title Daily financials
+                    .heading-elements
+                        form.heading-form(action='#')
+                            .form-group
+                                label.checkbox.checkbox-inline.checkbox-switchery.checkbox-right.switchery-xs
+                                    input#realtime.switcher(type='checkbox', checked='checked')
+                                    Realtime
+                        span.badge.bg-danger-400.heading-text +86
+                .panel-body
+                    #bullets.content-group-xs
+                    ul.media-list
+                        li.media
+                            .media-left
+                                a.btn.border-pink.text-pink.btn-flat.btn-rounded.btn-icon.btn-xs(href='#')
+                                    i.icon-statistics
+                            .media-body
+                                | Stats for July, 6: 1938 orders, $4220 revenue
+                                .media-annotation 2 hours ago
+                            .media-right.media-middle
+                                ul.icons-list
+                                    li
+                                        a(href='#')
+                                            i.icon-arrow-right13
+                        li.media
+                            .media-left
+                                a.btn.border-success.text-success.btn-flat.btn-rounded.btn-icon.btn-xs(href='#')
+                                    i.icon-checkmark3
+                            .media-body
+                                | Invoices 
+                                a(href='#') #4732
+                                |  and 
+                                a(href='#') #4734
+                                |  have been paid
+                                .media-annotation Dec 18, 18:36
+                            .media-right.media-middle
+                                ul.icons-list
+                                    li
+                                        a(href='#')
+                                            i.icon-arrow-right13
+                        li.media
+                            .media-left
+                                a.btn.border-primary.text-primary.btn-flat.btn-rounded.btn-icon.btn-xs(href='#')
+                                    i.icon-alignment-unalign
+                            .media-body
+                                | Affiliate commission for June has been paid
+                                .media-annotation 36 minutes ago
+                            .media-right.media-middle
+                                ul.icons-list
+                                    li
+                                        a(href='#')
+                                            i.icon-arrow-right13
+                        li.media
+                            .media-left
+                                a.btn.border-warning-400.text-warning-400.btn-flat.btn-rounded.btn-icon.btn-xs(href='#')
+                                    i.icon-spinner11
+                            .media-body
+                                | Order 
+                                a(href='#') #37745
+                                |  from July, 1st has been refunded
+                                .media-annotation 4 minutes ago
+                            .media-right.media-middle
+                                ul.icons-list
+                                    li
+                                        a(href='#')
+                                            i.icon-arrow-right13
+                        li.media
+                            .media-left
+                                a.btn.border-teal-400.text-teal.btn-flat.btn-rounded.btn-icon.btn-xs(href='#')
+                                    i.icon-redo2
+                            .media-body
+                                | Invoice 
+                                a(href='#') #4769
+                                |  has been sent to 
+                                a(href='#') Robert Smith
+                                .media-annotation Dec 12, 05:46
+                            .media-right.media-middle
+                                ul.icons-list
+                                    li
+                                        a(href='#')
+                                            i.icon-arrow-right13
+                // /daily financials
+        // /dashboard content

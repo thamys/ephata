@@ -1,0 +1,145 @@
+extends ./layout.pug
+block title
+    title Cadastrar Professor Particular - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Professores Particulares
+    |  - Cadastrar Professor Particular
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/forms/wizards/steps.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/core/libraries/jasny_bootstrap.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/validation/validate.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/cadastrar_tipo_boleto.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Boletos
+    li.active Cadastrar Tipo de Boleto
+block content
+    // /Formulário de Cadastro
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Cadastrar e Configurar Tipo de Boleto
+            .heading-elements
+                ul.icons-list
+                    li
+                        a(data-action='reload')
+        .panel-body
+            form.steps-starting-step(action='#')
+                h6 Cadastrar
+                fieldset
+                    .row
+                        .col-md-6
+                            .form-group
+                                label.col-lg-3.control-label Selecione a Conta Bancária:
+                                .col-lg-9.mb-15
+                                    select.select(data-placeholder='UF')
+                                        option
+                                        option(value='1') MG
+                                        |  
+                                        option(value='2') RG
+                                        |  
+                                        option(value='3') SP
+                                        |  
+                                        option(value='4') ES
+                            .form-group
+                                    label.col-lg-3.control-label Nº do Convênio:
+                                    .col-lg-9
+                                        input.form-control(type='text', placeholder='eugene@kopyov.com')
+                        .col-md-6
+                            .form-group
+                                label.col-lg-3.control-label Nº do Contrato:
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Carteira:
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Variação da Carteira:
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                h6 Configurar
+                fieldset
+                    .row
+                        .col-md-6
+                            .form-group
+                                label.col-lg-3.control-label Logo:
+                                .col-lg-9.mb-15
+                                    input.form-control.file-styled(type='file')
+                            .form-group
+                                label.col-lg-3.control-label Identificação
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label CNPJ
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Cedente:
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Taxa :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Endereço:
+                                .col-lg-9
+                                    .row
+                                        .col-md-6                         
+                                            input.form-control.mb-15(type='text', placeholder='CEP')
+                                        .col-md-12
+                                            input.form-control.mb-15(type='text', placeholder='Endereço')
+                                        .col-md-6
+                                            input.form-control.mb-15(type='text', placeholder='Número')
+                                            input.form-control(type='text', placeholder='Cidade')
+                                        .col-md-6
+                                            input.form-control.mb-15(type='text', placeholder='Complemento')
+                                            .mb-15
+                                                select.select(data-placeholder='Estado')
+                                                    option
+                                                    option(value='1') Canada
+                                                    |  
+                                                    option(value='2') USA
+                                                    |  
+                                                    option(value='3') Australia
+                                                    |  
+                                                    option(value='4') Germany
+                        .col-md-6
+                            .form-group
+                                label.col-lg-3.control-label Demonstrativo 1 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Demonstrativo 2 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Demonstrativo 3 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Instruções 1 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Instruções 2 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Instruções 3 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                            .form-group
+                                label.col-lg-3.control-label Instruções 4 :
+                                .col-lg-9.mb-15
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+            // /2 columns form
+    // /Formulário de Cadastro

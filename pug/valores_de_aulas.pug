@@ -1,0 +1,106 @@
+extends ./layout.pug
+block title
+    title Valores de Aulas por Professor - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Professores
+    |  - Valores de Aulas por Professor
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/tables/datatables/datatables.min.js')
+    script(type='text/javascript', src='assets/js/plugins/tables/datatables/extensions/tools.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/valores_de_aulas.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Professores
+    li.active Valores de Aulas
+block content
+    // Basic datatable
+    .panel.panel-flat
+        .panel-heading
+            h5.panel-title Valores de aulas de cada professor
+            .heading-elements
+                ul.icons-list
+                    li
+                        a(data-action='collapse')
+                    li
+                        a(data-action='reload')
+                    li
+                        a(data-action='close')
+        .panel-body
+            | The 
+            code DataTables
+            |  is a highly flexible tool, based upon the foundations of progressive enhancement, and will add advanced interaction controls to any HTML table. DataTables has most features enabled by default, so all you need to do to use it with your own tables is to call the construction function. Searching, ordering, paging etc goodness will be immediately added to the table, as shown in this example. 
+            strong Datatables support all available table styling.
+            table.table.datatable-column-search-inputs.table-striped.table-hover
+            thead
+                tr
+                    th First Name
+                    th Last Name
+                    th Job Title
+                    th DOB
+                    th Status
+                    th.text-center Actions
+            tbody
+                - var n = 0;
+                while n < 16
+                    - n++
+                    tr
+                        td Marth
+                        td
+                            a(href='#') Enright
+                        td 22 Jun 1972
+                        td
+                            span.label.label-success Sim
+                        td
+                            span.label.label-success Ativo
+                        +actions
+            tfoot
+                tr
+                    td.input-filter Nome do Aluno
+                    td.input-filter Sobrenome
+                    td.select-filter Data do Cadastro
+                    td.select-filter Matriculado
+                    td.select-filter Status
+                    td
+    // /basic datatable
+mixin actions
+    td.text-center
+        ul.icons-list
+            li.dropdown
+                a.dropdown-toggle(href='#', data-toggle='dropdown')
+                    i.icon-menu9
+                ul.dropdown-menu.dropdown-menu-right
+                    li
+                        a.efetuar-matricula(href='#').text-primary-800
+                            i.icon-vcard
+                            |  Efetuar Matrícula
+                    li
+                        a.editar(href='#').text-info-600
+                            i.icon-pencil3
+                            |  Editar
+                    li
+                        a.excluir(href='#').text-danger-700
+                            i.icon-cross3
+                            |  Excluir
+                    li
+                        a.ativar(href='#').text-green-800
+                            i.icon-checkmark
+                            |  Ativar
+                    li
+                        a.inativar(href='#').text-slate-800
+                            i.icon-blocked
+                            |  Inativar
+                    li
+                        a.salvar(href='#').text-indigo-400
+                            i.icon-usb-stick
+                            |  Salvar
+                    li
+                        a.fechar(href='#').text-brown-700
+                            i.icon-exit
+                            |  Fechar

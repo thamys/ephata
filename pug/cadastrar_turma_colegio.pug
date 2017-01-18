@@ -1,0 +1,178 @@
+extends ./layout.pug
+block title
+    title Cadastrar Turma para o Colégio - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Colégio
+    |  - Cadastrar Turma
+block theme-js-files
+    script(type='text/javascript', src='assets/js/plugins/forms/selects/select2.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/inputs/duallistbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/pages/form_layouts.js')
+    script(type='text/javascript', src='assets/js/pages/form_dual_listboxes.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/cadastrar_turma_colegio.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Colégio
+    li Turmas
+    li.active Cadastrar Turma
+block content
+    // /Formulário de Cadastro
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Cadastrar Turma para Colégio
+            .heading-elements
+                ul.icons-list
+                    li
+                        a(data-action='collapse')
+                    li
+                        a(data-action='reload')
+                    li
+                        a(data-action='close')
+        .panel-body
+            form.form-horizontal(action='#')
+                .row
+                    .col-md-6
+                        .form-group
+                            label.col-lg-3.control-label Nome da Turma:
+                            .col-lg-9
+                                input.form-control(type='text', placeholder='eugene@kopyov.com')
+                        .form-group
+                            label.col-lg-3.control-label Selecione a Série/Ano
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                        .form-group
+                            label.col-lg-3.control-label Selecione o Turno
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                        .form-group
+                            label.col-lg-3.control-label Selecione a Sala
+                            .col-lg-9
+                                select.select
+                                    optgroup(label='Mountain Time Zone')
+                                        option(value='AZ') Arizona
+                                        option(value='CO') Colorado
+                                        option(value='ID') Idaho
+                                        option(value='WY') Wyoming
+                                    optgroup(label='Central Time Zone')
+                                        option(value='AL') Alabama
+                                        option(value='AR') Arkansas
+                                        option(value='KS') Kansas
+                                        option(value='KY') Kentucky
+                    .col-md-6
+                        .form-group
+                                label.col-lg-3.control-label Duração:
+                                .col-lg-9
+                                    .row
+                                        .col-md-6
+                                            input.form-control(type='text', placeholder='Data Início')
+                                        .col-md-6
+                                            input.form-control(type='text', placeholder='Data Fim')
+                        .form-group
+                                label.col-lg-3.control-label Valor da Aula:
+                                .col-lg-9
+                                    input.form-control(type='text', placeholder='eugene@kopyov.com')
+                        .form-group
+                            label.text-semibold.col-md-12 Disciplina(s)
+                            .col-md-4
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | Português
+                                .checkbox
+                                    label
+                                        input(type='checkbox')
+                                        | Matemática
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | História
+                            .col-md-4
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | Português
+                                .checkbox
+                                    label
+                                        input(type='checkbox')
+                                        | Matemática
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | História
+                            .col-md-4
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | Português
+                                .checkbox
+                                    label
+                                        input(type='checkbox')
+                                        | Matemática
+                                .checkbox
+                                    label
+                                        input(type='checkbox', checked='checked')
+                                        | História
+                p.coutent-group
+                    | The following example demonstrates initialization of the dual listbox with a filter for the non selected elements, currently from 7 to 12. This can be applied only if 
+                    code showFilterInputs
+                    |  is set to 
+                    code true
+                    | . Using 
+                    code selectedFilter
+                    |  option, listbox will filter selected elements only. You can use &quot;Display all&quot; button as a filter reset.
+                select.form-control.listbox-filtered-results(multiple='multiple')
+                    option(value='option1') Classical mechanics
+                    option(value='option2') Electromagnetism
+                    option(value='option4') Relativity
+                    option(value='option5') Quantum mechanics
+                    option(value='option7') Astrophysics
+                    option(value='option8') Biophysics
+                    option(value='option9') Chemical physics
+                    option(value='option10') Econophysics
+                    option(value='option11') Geophysics
+                    option(value='option12') Medical physics
+                    option(value='option13') Physical chemistry
+                    option(value='option14') Continuum mechanics
+                    option(value='option15') Electrodynamics
+                    option(value='option16') Quantum field theory
+                    option(value='option17') Scattering theory
+                    option(value='option18') Chaos theory
+                    option(value='option19') Newton&apos;s laws of motion
+                    option(value='option20') Thermodynamics
+                    // /filtered results
+                .text-right
+                    button.btn.btn-default.fechar(type='submit')
+                        | Cancelar
+                        i.icon-cross.position-right
+                    button.btn.btn-primary.salvar(type='submit')
+                        | Salvar
+                        i.icon-arrow-right14.position-right
+            // /2 columns form
+    // /Formulário de Cadastro

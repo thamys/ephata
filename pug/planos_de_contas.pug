@@ -1,0 +1,135 @@
+extends ./layout.pug
+block title
+    title Planos de Contas - Cerebelo Curso nota 10
+block page-title
+    span.text-semibold Planos de Contas
+    |  - Listagem de Plano de Contas
+block theme-js-files
+    script(type='text/javascript', src='assets/js/core/libraries/jquery_ui/core.min.js')
+    script(type='text/javascript', src='assets/js/core/libraries/jquery_ui/effects.min.js')
+    script(type='text/javascript', src='assets/js/core/libraries/jquery_ui/interactions.min.js')
+    script(type='text/javascript', src='assets/js/plugins/extensions/cookie.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/switchery.min.js')
+    script(type='text/javascript', src='assets/js/plugins/forms/styling/uniform.min.js')
+    script(type='text/javascript', src='assets/js/plugins/trees/fancytree_all.min.js')
+    script(type='text/javascript', src='assets/js/plugins/trees/fancytree_childcounter.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/bootbox.min.js')
+    script(type='text/javascript', src='assets/js/plugins/notifications/sweet_alert.min.js')
+    script(type='text/javascript', src='assets/js/core/app.js')
+    script(type='text/javascript', src='assets/js/pages/extra_trees.js')
+    script(type='text/javascript', src='assets/js/cerebelo_pages/planos_de_contas.js')
+block breadcrumb
+    li
+        a(href='index.html')
+            i.icon-home2.position-left
+            |  Home
+    li Planos de Contas
+    li.active Listagem de Plano de Contas
+block content
+    // Starting step
+    .panel.panel-white
+        .panel-heading
+            h6.panel-title Planos de Contas
+            .heading-elements
+                ul.icons-list
+                    //- li
+                        a(data-action='collapse')
+                    li
+                        a(data-action='reload')
+                    //- /li
+                        a(data-action='close')
+        .panel-body
+            p.mb-15
+                | Current example demonstrates multi level file tree with default options, initialized from an 
+                code &lt;ul&gt;
+                |  element.
+            .tree-default.well.border-left-info.border-left-lg
+                ul
+                    li.folder.expanded
+                        input.form-control(type='text', placeholder='Cadastrar Plano de Contas')
+                        button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                            i.icon-plus22 
+                            | adicionar plano de contas
+                    li.folder.expanded
+                        | Despesas Fixas
+                        button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                            i.icon-plus22 
+                            | adicionar filho
+                        ul
+                            li.expanded
+                                | Aluguel e despesas de locação
+                                button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                                    i.icon-plus22 
+                                    | adicionar filho           
+                                ul
+                                    li.active.focused Alarme Fox
+                                    li
+                                        | Cemig
+                            li
+                                | Collapsed sub-item
+                                button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                                    i.icon-plus22 
+                                    | adicionar filho  
+                                ul
+                                    li Sub-item 2.2.1
+                                    li Sub-item 2.2.2
+                    li.has-tooltip(title='Look, a tool tip!') Despesas Extras
+                    li.folder
+                        | Despesas Mensais Fixas
+                        button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                            i.icon-plus22 
+                            | adicionar filho  
+                        ul
+                            li Sub-item 1.1
+                            li Sub-item 1.2
+                    li Despesas Extras Diversas
+                    li.expanded
+                        | Despesas Publicidade, Propaganda e Marketing
+                        button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                            i.icon-plus22 
+                            | adicionar filho  
+                        ul
+                            li Document sub-item
+                            li
+                                | Another document sub-item
+                                button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                                    i.icon-plus22 
+                                    | adicionar filho  
+                                ul
+                                    li Sub-item 2.1.1
+                                    li Sub-item 2.1.2
+                    li Despesas Variáveis
+                    li.expanded
+                        | Receitas
+                        button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                                    i.icon-plus22 
+                                    | adicionar filho  
+                        ul
+                            li Document sub-item
+                            li
+                                | Another document sub-item
+                                button.btn.no-padding.text-primary.btn-flat.btn-icon(type='button' data-toggle='modal', data-target='#modal_form_vertical')
+                                    i.icon-plus22 
+                                    | adicionar filho  
+                                ul
+                                    li Sub-item 2.1.1
+                                    li Sub-item 2.1.2
+    // /default unordered list markup
+    // Vertical form modal
+    #modal_form_vertical.modal.fade
+        .modal-dialog
+            .modal-content
+                .modal-header
+                    button.close(type='button', data-dismiss='modal') &times;
+                    h5.modal-title Cadastrar Plano de Contas
+                form(action='#')
+                    .modal-body
+                        .form-group
+                            .row
+                                .col-sm-12
+                                    label Nome do Plano de Contas
+                                    input.form-control(type='text', placeholder='Eugene')
+                    .modal-footer
+                        button.btn.btn-link.fechar(type='button', data-dismiss='modal') Fechar
+                        button.btn.btn-primary.salvar(type='submit') Salvar
+    // /vertical form modal
