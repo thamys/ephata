@@ -4,8 +4,8 @@
 *
 *  Specific JS code additions for form_validation.html page
 *
-*  Version: 1.1
-*  Latest update: Oct 20, 2015
+*  Version: 1.3
+*  Latest update: Feb 5, 2016
 *
 * ---------------------------------------------------------------------------- */
 
@@ -44,7 +44,7 @@ $(function() {
 
     // Select2 select
     $('.select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity
     });
 
 
@@ -54,8 +54,7 @@ $(function() {
 
     // Styled file input
     $(".file-styled").uniform({
-        wrapperClass: 'bg-teal-400',
-        fileButtonHtml: '<i class="icon-googleplus5"></i>'
+        fileButtonClass: 'action btn bg-blue'
     });
 
 
@@ -65,7 +64,7 @@ $(function() {
 
     // Initialize
     var validator = $(".form-validate-jquery").validate({
-        ignore: 'input[type=hidden], .select2-input', // ignore hidden fields
+        ignore: 'input[type=hidden], .select2-search__field', // ignore hidden fields
         errorClass: 'validation-error-label',
         successClass: 'validation-valid-label',
         highlight: function(element, errorClass) {
@@ -93,8 +92,8 @@ $(function() {
                 error.appendTo( element.parent().parent().parent() );
             }
 
-            // Input with icons
-            else if (element.parents('div').hasClass('has-feedback')) {
+            // Input with icons and Select2
+            else if (element.parents('div').hasClass('has-feedback') || element.hasClass('select2-hidden-accessible')) {
                 error.appendTo( element.parent() );
             }
 
@@ -107,6 +106,7 @@ $(function() {
             else if (element.parent().hasClass('uploader') || element.parents().hasClass('input-group')) {
                 error.appendTo( element.parent().parent() );
             }
+
             else {
                 error.insertAfter(element);
             }
@@ -116,7 +116,6 @@ $(function() {
             label.addClass("validation-valid-label").text("Success.")
         },
         rules: {
-            vali: "required",
             password: {
                 minlength: 5
             },
@@ -159,7 +158,7 @@ $(function() {
             digits: {
                 digits: true
             },
-            card: {
+            creditcard: {
                 creditcard: true
             },
             basic_checkbox: {

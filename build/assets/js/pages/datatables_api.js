@@ -107,13 +107,12 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
 
 
-    //Enable Select2 select for individual column searching
-    $('.filter-select').select2({
-        width: '100%'
-    });
+    // Enable Select2 select for individual column searching
+    $('.filter-select').select2();
     
 });

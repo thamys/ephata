@@ -92,7 +92,7 @@ $(function() {
 
     // Styles checkboxes, radios
     $('.styled').uniform({
-    	wrapperClass: 'bg-white'
+    	radioClass: 'choice'
     });
 
 
@@ -102,7 +102,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
     
 });

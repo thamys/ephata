@@ -1,0 +1,337 @@
+.navbar.navbar-inverse.bg-indigo
+    .navbar-header
+        a.navbar-brand(href='index.html')
+            img(src='assets/images/logo_light.png' alt='')
+        
+        ul.nav.navbar-nav.pull-right.visible-xs-block
+            li
+                a(data-toggle='collapse' data-target='#navbar-mobile')
+                    i.icon-tree5
+    
+    #navbar-mobile.navbar-collapse.collapse
+        ul.nav.navbar-nav
+            li.dropdown
+                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                    i.icon-git-compare
+                    
+                    span.visible-xs-inline-block.position-right Git updates
+                    
+                    span.badge.bg-warning-400 9
+                
+                
+                .dropdown-menu.dropdown-content
+                    .dropdown-content-heading
+                        | Git updates
+                        ul.icons-list
+                            li
+                                a(href='#')
+                                    i.icon-sync
+                    
+                    ul.media-list.dropdown-content-body.width-350
+                        li.media
+                            .media-left
+                                a.btn.border-primary.text-primary.btn-flat.btn-rounded.btn-icon.btn-sm(href='#')
+                                    i.icon-git-pull-request
+                            
+                            .media-body
+                                | Drop the IE
+                                a(href='#') specific hacks
+                                |  for temporal inputs
+                                
+                                .media-annotation 4 minutes ago
+                        
+                        li.media
+                            .media-left
+                                a.btn.border-warning.text-warning.btn-flat.btn-rounded.btn-icon.btn-sm(href='#')
+                                    i.icon-git-commit
+                            
+                            
+                            .media-body
+                                | Add full font overrides for popovers and tooltips
+                                .media-annotation 36 minutes ago
+                        
+                        li.media
+                            .media-left
+                                a.btn.border-info.text-info.btn-flat.btn-rounded.btn-icon.btn-sm(href='#')
+                                    i.icon-git-branch
+                            
+                            
+                            .media-body
+                                a(href='#') Chris Arney
+                                |  created a new
+                                span.text-semibold Design
+                                |  branch
+                                
+                                .media-annotation 2 hours ago
+                        
+                        li.media
+                            .media-left
+                                a.btn.border-success.text-success.btn-flat.btn-rounded.btn-icon.btn-sm(href='#')
+                                    i.icon-git-merge
+                            
+                            
+                            .media-body
+                                a(href='#') Eugene Kopyov
+                                |  merged
+                                span.text-semibold Master
+                                |  and
+                                span.text-semibold Dev
+                                |  branches
+                                
+                                .media-annotation Dec 18, 18:36
+                        
+                        li.media
+                            .media-left
+                                a.btn.border-primary.text-primary.btn-flat.btn-rounded.btn-icon.btn-sm(href='#')
+                                    i.icon-git-pull-request
+                            
+                            
+                            .media-body
+                                | Have Carousel ignore keyboard events
+                                .media-annotation Dec 12, 05:46
+                    
+                    .dropdown-content-footer
+                        a(href='#' data-popup='tooltip' title='All activity')
+                            i.icon-menu.display-block
+            
+            li.dropdown
+                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                    i.icon-people
+                    
+                    span.visible-xs-inline-block.position-right Users
+                
+                
+                .dropdown-menu.dropdown-content
+                    .dropdown-content-heading
+                        | Users online
+                        ul.icons-list
+                            li
+                                a(href='#')
+                                    i.icon-gear
+                    
+                    ul.media-list.dropdown-content-body.width-300
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading.text-semibold(href='#') Jordana Ansley
+                                
+                                span.display-block.text-muted.text-size-small Lead web developer
+                            
+                            .media-right.media-middle
+                                span.status-mark.border-success
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading.text-semibold(href='#') Will Brason
+                                
+                                span.display-block.text-muted.text-size-small Marketing manager
+                            
+                            .media-right.media-middle
+                                span.status-mark.border-danger
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading.text-semibold(href='#') Hanna Walden
+                                
+                                span.display-block.text-muted.text-size-small Project manager
+                            
+                            .media-right.media-middle
+                                span.status-mark.border-success
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading.text-semibold(href='#') Dori Laperriere
+                                
+                                span.display-block.text-muted.text-size-small Business developer
+                            
+                            .media-right.media-middle
+                                span.status-mark.border-warning-300
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading.text-semibold(href='#') Vanessa Aurelius
+                                
+                                span.display-block.text-muted.text-size-small UX expert
+                            
+                            .media-right.media-middle
+                                span.status-mark.border-grey-400
+                    
+                    .dropdown-content-footer
+                        a(href='#' data-popup='tooltip' title='All users')
+                            i.icon-menu.display-block
+        
+        p.navbar-text
+            span.label.bg-success-400 Online
+        
+        ul.nav.navbar-nav.navbar-right
+            li.dropdown.language-switch
+                a.dropdown-toggle(data-toggle='dropdown')
+                    img.position-left(src='assets/images/flags/gb.png' alt='')
+                    
+                    
+                    span.caret
+                
+                ul.dropdown-menu
+                    li
+                        a.deutsch
+                            img(src='assets/images/flags/de.png' alt='')
+                            |  Deutsch
+                    
+                    li
+                        a.ukrainian
+                            img(src='assets/images/flags/ua.png' alt='')
+                            |  &Ucy;&kcy;&rcy;&acy;&yicy;&ncy;&scy;&softcy;&kcy;&acy;
+                    
+                    li
+                        a.english
+                            img(src='assets/images/flags/gb.png' alt='')
+                            |  English
+                    
+                    li
+                        a.espana
+                            img(src='assets/images/flags/es.png' alt='')
+                            |  Espa&ntilde;a
+                    
+                    li
+                        a.russian
+                            img(src='assets/images/flags/ru.png' alt='')
+                            |  &Rcy;&ucy;&scy;&scy;&kcy;&icy;&jcy;
+            
+            li.dropdown
+                a.dropdown-toggle(href='#' data-toggle='dropdown')
+                    i.icon-bubbles4
+                    
+                    span.visible-xs-inline-block.position-right Messages
+                    
+                    span.badge.bg-warning-400 2
+                
+                
+                .dropdown-menu.dropdown-content.width-350
+                    .dropdown-content-heading
+                        | Messages
+                        ul.icons-list
+                            li
+                                a(href='#')
+                                    i.icon-compose
+                    
+                    ul.media-list.dropdown-content-body
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                                
+                                span.badge.bg-danger-400.media-badge 5
+                            
+                            .media-body
+                                a.media-heading(href='#')
+                                    span.text-semibold James Alexander
+                                    
+                                    span.media-annotation.pull-right 04:58
+                                
+                                span.text-muted who knows, maybe that would be the best thing for me...
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                                
+                                span.badge.bg-danger-400.media-badge 4
+                            
+                            .media-body
+                                a.media-heading(href='#')
+                                    span.text-semibold Margo Baker
+                                    
+                                    span.media-annotation.pull-right 12:16
+                                
+                                span.text-muted That was something he was unable to do because...
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading(href='#')
+                                    span.text-semibold Jeremy Victorino
+                                    
+                                    span.media-annotation.pull-right 22:48
+                                
+                                span.text-muted But that would be extremely strained and suspicious...
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading(href='#')
+                                    span.text-semibold Beatrix Diaz
+                                    
+                                    span.media-annotation.pull-right Tue
+                                
+                                span.text-muted What a strenuous career it is that I&apos;ve chosen...
+                        
+                        li.media
+                            .media-left
+                                img.img-circle.img-sm(src='assets/images/placeholder.jpg' alt='')
+                            
+                            .media-body
+                                a.media-heading(href='#')
+                                    span.text-semibold Richard Vango
+                                    
+                                    span.media-annotation.pull-right Mon
+                                
+                                
+                                span.text-muted Other travelling salesmen live a life of luxury...
+                    
+                    .dropdown-content-footer
+                        a(href='#' data-popup='tooltip' title='All messages')
+                            i.icon-menu.display-block
+            
+            li.dropdown.dropdown-user
+                a.dropdown-toggle(data-toggle='dropdown')
+                    img(src='assets/images/placeholder.jpg' alt='')
+                    
+                    span Victoria
+                    
+                    i.caret
+                
+                ul.dropdown-menu.dropdown-menu-right
+                    li
+                        a(href='#')
+                            i.icon-user-plus
+                            |  My profile
+                    
+                    li
+                        a(href='#')
+                            i.icon-coins
+                            |  My balance
+                    
+                    li
+                        a(href='#')
+                            span.badge.badge-warning.pull-right 58
+                            
+                            i.icon-comment-discussion
+                            |  Messages
+                    
+                    li.divider
+                    
+                    li
+                        a(href='#')
+                            i.icon-cog5
+                            |  Account settings
+                    
+                    li
+                        a(href='#')
+                            i.icon-switch2
+                            |  Logout

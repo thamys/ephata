@@ -14,7 +14,7 @@ $(function() {
     // Initialize Select2 select
     $('.select').select2({
         width: 180,
-        minimumResultsForSearch: '-1'
+        minimumResultsForSearch: Infinity
     });
 
 

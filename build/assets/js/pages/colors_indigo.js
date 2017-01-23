@@ -17,19 +17,21 @@ $(function() {
 
     // Basic select2
     $('.select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        containerCssClass: 'bg-indigo-400'
     });
 
 
     // Select2 ultiselect item color
     $('.select-item-color').select2({
-        formatSelectionCssClass: function (data, container) { return "bg-indigo"; }
+        containerCssClass: 'bg-indigo-400'
     });
 
 
     // Select2 dropdown menu color
     $('.select-menu-color').select2({
-        dropdownCssClass: 'bg-indigo'
+        containerCssClass: 'bg-indigo-400',
+        dropdownCssClass: 'bg-indigo-400'
     });
 
 
@@ -100,8 +102,7 @@ $(function() {
 
     // File input
     $(".file-styled").uniform({
-        wrapperClass: 'bg-indigo',
-        fileButtonHtml: '<i class="icon-cloud-upload2"></i>'
+        fileButtonClass: 'action btn bg-indigo'
     });
 
 

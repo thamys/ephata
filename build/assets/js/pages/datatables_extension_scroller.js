@@ -4,8 +4,8 @@
 *
 *  Specific JS code additions for datatable_extension_scroller.html page
 *
-*  Version: 1.0
-*  Latest update: Aug 1, 2015
+*  Version: 1.1
+*  Latest update: Nov 10, 2015
 *
 * ---------------------------------------------------------------------------- */
 
@@ -40,23 +40,6 @@ $(function() {
     });
 
 
-    // Tabletools defaults
-    $.extend(true, $.fn.DataTable.TableTools.classes, {
-        "container" : "btn-group DTTT_container", // buttons container
-        "buttons" : {
-            "normal" : "btn btn-default", // default button classes
-            "disabled" : "disabled" // disabled button classes
-        },
-        "collection" : {
-            "container" : "dropdown-menu" // collection container to take dropdown menu styling
-        },
-        "select" : {
-            "row" : "success" // selected row class
-        }
-    });
-
-
-
     // Table setup
     // ------------------------------
 
@@ -66,13 +49,23 @@ $(function() {
     }, 100);
 
 
-    // Scroller with TableTools
+    // Scroller with Buttons extension
     setTimeout(function() {
-        $('.datatable-scroller-tools').DataTable({
-            dom: '<"datatable-header info-right"fT><"datatable-scroll"tS>',
-            tableTools: {
-                sSwfPath: "assets/swf/datatables/copy_csv_xls_pdf.swf",
-                aButtons: ["copy", "print", "csv", "xls", "pdf"]
+        $('.datatable-scroller-buttons').DataTable({
+            dom: '<"datatable-header dt-buttons-right"fB><"datatable-scroll"tS><"datatable-footer"i>',
+            buttons: {
+                dom: {
+                    button: {
+                        className: 'btn btn-default'
+                    }
+                },
+                buttons: [
+                    {extend: 'copy'},
+                    {extend: 'csv'},
+                    {extend: 'excel'},
+                    {extend: 'pdf'},
+                    {extend: 'print'}
+                ]
             }
         });
     }, 1000);
@@ -108,7 +101,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
     
 });

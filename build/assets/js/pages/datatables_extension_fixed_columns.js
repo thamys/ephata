@@ -130,8 +130,13 @@ $(function() {
     });
 
 
+    //
     // Fixed column with complex headers
-    $('.datatable-fixed-complex').DataTable({
+    //
+    
+    // Initialize
+    var table = $('.datatable-fixed-complex').DataTable({
+        autoWidth: false,
         columnDefs: [
             { 
                 orderable: false,
@@ -157,11 +162,15 @@ $(function() {
         scrollX: true,
         scrollY: '350px',
         scrollCollapse: true,
-        fixedColumns: {
-            leftColumns: 1,
-            rightColumns: 0
-        }
+        fixedColumns: true
     });
+
+    // Adjust columns on window resize
+    setTimeout(function() {
+        $(window).on('resize', function () {
+            table.columns.adjust();
+        });
+    }, 100);
 
 
 
@@ -174,7 +183,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
     
 });

@@ -16,7 +16,7 @@ $(function() {
     // -------------------------
 
     // jQuery UI slider
-    $( ".ui-slider" ).slider({
+    $(".ui-slider").slider({
         range: true,
         min: 0,
         max: 60,
@@ -25,7 +25,8 @@ $(function() {
 
 
     // NoUI slider
-    $('.noui-slider').noUiSlider({
+    var slider_noui = document.getElementById('noui-slider-demo');
+    noUiSlider.create(slider_noui, {
         start: [ 4000, 8000 ],
         connect: true,
         range: {
@@ -41,7 +42,7 @@ $(function() {
 
     // SelectBoxIt dropdowns
     $(".selectbox").selectBoxIt({
-        autoWidth: false 
+        autoWidth: false
     });
 
 
@@ -51,8 +52,8 @@ $(function() {
 
     // Select2 selects
     $('.select').select2({
-        minimumResultsForSearch: "-1",
-        width: 200
+        minimumResultsForSearch: Infinity,
+        width: 150
     });
 
 
@@ -104,8 +105,8 @@ $(function() {
 
     // Single file uploader
     $('.file-styled').uniform({
-        fileButtonHtml: '<i class="icon-googleplus5"></i>',
-        wrapperClass: 'bg-warning'
+        fileClass: 'uploader uploader-xs',
+        fileButtonClass: 'action btn bg-blue btn-xs'
     });
 
 

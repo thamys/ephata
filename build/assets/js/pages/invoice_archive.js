@@ -71,14 +71,14 @@ $(function() {
 
             $('.select').select2({
                 width: '150px',
-                minimumResultsForSearch: "-1"
+                minimumResultsForSearch: Infinity
             });
 
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').addClass('dropup');
         },
         preDrawCallback: function(settings) {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
-            $('.select').select2('destroy');
+            $('.select').select2().select2('destroy');
         }
     });
 
@@ -93,7 +93,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
 
 });

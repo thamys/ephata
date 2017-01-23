@@ -66,12 +66,12 @@ $(function() {
         $(".navbar-fixed-top").headroom('destroy').removeData('headroom');
 
         // Toggle classes
-        $('body').children('.navbar').removeClass('navbar-fixed-top').addClass('navbar-fixed-bottom');
+        $('body').children('.navbar').first().removeClass('navbar-fixed-top').addClass('navbar-fixed-bottom');
         $('body').removeClass('navbar-top').addClass('navbar-bottom');
+        $('.page-container').addClass('pb-20');
 
         // Initialize bottom navbar
         headroomBottom();
-
 
       }
       else {
@@ -80,8 +80,9 @@ $(function() {
         $(".navbar-fixed-bottom").headroom('destroy').removeData('headroom');
 
         // Toggle classes
-        $('body').children('.navbar').removeClass('navbar-fixed-bottom').addClass('navbar-fixed-top');
+        $('body').children('.navbar').first().removeClass('navbar-fixed-bottom').addClass('navbar-fixed-top');
         $('body').removeClass('navbar-bottom').addClass('navbar-top');
+        $('.page-container').removeClass('pb-20');
 
         // Initialize top navbar
         headroomTop();

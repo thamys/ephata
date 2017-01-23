@@ -4,8 +4,8 @@
 *
 *  Specific JS code additions for picker_date.html page
 *
-*  Version: 1.0
-*  Latest update: Aug 1, 2015
+*  Version: 1.1
+*  Latest update: Aug 10, 2016
 *
 * ---------------------------------------------------------------------------- */
 
@@ -41,7 +41,10 @@ $(function() {
     $('.daterange-time').daterangepicker({
         timePicker: true,
         applyClass: 'bg-slate-600',
-        cancelClass: 'btn-default'
+        cancelClass: 'btn-default',
+        locale: {
+            format: 'MM/DD/YYYY h:mm a'
+        }
     });
 
 
@@ -75,7 +78,9 @@ $(function() {
         applyClass: 'bg-slate-600',
         cancelClass: 'btn-default',
         timePickerIncrement: 10,
-        format: 'MM/DD/YYYY h:mm A'
+        locale: {
+            format: 'MM/DD/YYYY h:mm a'
+        }
     });
 
 
@@ -127,17 +132,16 @@ $(function() {
             },
             opens: 'left',
             applyClass: 'btn-small bg-slate',
-            cancelClass: 'btn-small btn-default',
-            format: 'MM/DD/YYYY'
+            cancelClass: 'btn-small btn-default'
         },
         function(start, end) {
-            $('.daterange-predefined span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('.daterange-predefined span').html(start.format('MMMM D, YYYY') + ' &nbsp; - &nbsp; ' + end.format('MMMM D, YYYY'));
             $.jGrowl('Date range has been changed', { header: 'Update', theme: 'bg-primary', position: 'center', life: 1500 });
         }
     );
 
     // Display date format
-    $('.daterange-predefined span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+    $('.daterange-predefined span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' &nbsp; - &nbsp; ' + moment().format('MMMM D, YYYY'));
 
 
     //
@@ -162,16 +166,15 @@ $(function() {
             },
             opens: 'left',
             applyClass: 'btn-small bg-slate-600',
-            cancelClass: 'btn-small btn-default',
-            format: 'MM/DD/YYYY'
+            cancelClass: 'btn-small btn-default'
         },
         function(start, end) {
-            $('.daterange-ranges span').html(start.format('MMMM D, YYYY') + ' - ' + end.format('MMMM D, YYYY'));
+            $('.daterange-ranges span').html(start.format('MMMM D, YYYY') + ' &nbsp; - &nbsp; ' + end.format('MMMM D, YYYY'));
         }
     );
 
     // Display date format
-    $('.daterange-ranges span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' - ' + moment().format('MMMM D, YYYY'));
+    $('.daterange-ranges span').html(moment().subtract('days', 29).format('MMMM D, YYYY') + ' &nbsp; - &nbsp; ' + moment().format('MMMM D, YYYY'));
 
 
     
@@ -231,8 +234,21 @@ $(function() {
 
 
     // Editable input
-    $('.pickadate-editable').pickadate({
-        editable: true
+    var $input_date = $('.pickadate-editable').pickadate({
+        editable: true,
+        onClose: function() {
+            $('.datepicker').focus();
+        }
+    });
+
+    var picker_date = $input_date.pickadate('picker');
+    $input_date.on('click', function(event) { // register events (https://github.com/amsul/pickadate.js/issues/542)
+        if (picker_date.get('open')) {
+            picker_date.close();
+        } else {
+            picker_date.open();
+        }                        
+        event.stopPropagation();
     });
 
 
@@ -307,120 +323,6 @@ $(function() {
     });
 
 
-
-    // jQuery UI date picker
-    // ------------------------------
-
-    // Default functionality
-    $(".datepicker").datepicker();
-
-
-    // Dates in other months
-    $(".datepicker-dates").datepicker({
-        showOtherMonths: true,
-        selectOtherMonths: true
-    });
-
-
-    // Button bar
-    $(".datepicker-button-bar").datepicker({
-        showButtonPanel: true
-    });
-
-
-    // Month and year menu
-    $(".datepicker-menus").datepicker({
-        changeMonth: true,
-        changeYear: true
-    });
-
-
-    // Multiple months
-    $(".datepicker-multiple").datepicker({
-        numberOfMonths: 3,
-        showButtonPanel: true
-    });
-
-
-    // Icon trigger
-    $(".datepicker-icon").datepicker({
-        showOn: "button",
-        buttonImage: "assets/images/ui/datepicker_trigger.png",
-        buttonImageOnly: true
-    });
-
-
-    // Populate alternate field
-    $(".datepicker-alternate").datepicker({
-        altField: "#alternate",
-        altFormat: "DD, d MM, yy"
-    });
-
-
-    // Restrict date range
-    $(".datepicker-restrict").datepicker({ 
-        minDate: -20,
-        maxDate: "+1M +10D" 
-    });
-
-
-    // Show week number
-    $(".datepicker-weeks").datepicker({
-        showWeek: true,
-        firstDay: 1
-    });
-
-
-    //
-    // Date range
-    //
-
-    // From
-    $("#range-from").datepicker({
-        defaultDate: "+1w",
-        numberOfMonths: 3,
-        onClose: function( selectedDate ) {
-            $( "#range-to" ).datepicker( "option", "minDate", selectedDate );
-        }
-    });
-
-    // To
-    $("#range-to").datepicker({
-        defaultDate: "+1w",
-        numberOfMonths: 3,
-        onClose: function( selectedDate ) {
-            $( "#range-from" ).datepicker( "option", "maxDate", selectedDate );
-        }
-    });
-
-
-    //
-    // Format date
-    //
-
-    // Initialize
-    $(".datepicker-format").datepicker();
-
-    // Format date on change
-    $("#format").change(function() {
-        $(".datepicker-format").datepicker("option", "dateFormat", $(this).val());
-    });
-
-
-    //
-    // Format date
-    //
-
-    // Initialize
-    $(".datepicker-animation").datepicker();
-
-    // Animate picker on change
-    $("#anim").change(function() {
-        $(".datepicker-animation").datepicker("option", "showAnim", $(this).val());
-    });
-
-
-
     // Pick-a-time time picker
     // ------------------------------
 
@@ -454,8 +356,21 @@ $(function() {
 
 
     // Editable input
-    $('.pickatime-editable').pickatime({
-        editable: true
+    var $input_time = $('.pickatime-editable').pickatime({
+        editable: true,
+        onClose: function() {
+            $('.datepicker').focus();
+        }
+    });
+
+    var picker_time = $input_time.pickatime('picker');
+    $input_time.on('click', function(event) { // register events (https://github.com/amsul/pickadate.js/issues/542)
+        if (picker_time.get('open')) {
+            picker_time.close();
+        } else {
+            picker_time.open();
+        }                        
+        event.stopPropagation();
     });
 
 

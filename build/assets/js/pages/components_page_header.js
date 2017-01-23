@@ -4,8 +4,8 @@
 *
 *  Specific JS code additions for components_page_header.html page
 *
-*  Version: 1.0
-*  Latest update: Aug 1, 2015
+*  Version: 1.1
+*  Latest update: Nov 25, 2015
 *
 * ---------------------------------------------------------------------------- */
 
@@ -40,7 +40,6 @@ $(function() {
             buttonClasses: ['btn'],
             applyClass: 'btn-small btn-info btn-block',
             cancelClass: 'btn-small btn-default btn-block',
-            format: 'MM/DD/YYYY',
             separator: ' to ',
             locale: {
                 applyLabel: 'Submit',
@@ -85,18 +84,18 @@ $(function() {
             },
             opens: 'left',
             applyClass: 'btn-small btn-primary btn-block',
-            cancelClass: 'btn-small btn-default btn-block',
-            format: 'MM/DD/YYYY'
+            cancelClass: 'btn-small btn-default btn-block'
+            //format: 'MM/DD/YYYY'
         },
         function(start, end) {
 
             // Format date
-            $('.daterange-ranges span').html(start.format('MMM D, YYYY') + ' - ' + end.format('MMM D, YYYY'));
+            $('.daterange-ranges span').html(end.format('MMM D, YYYY') + ' - ' + start.format('MMM D, YYYY'));
         }
     );
 
     // Format date
-    $('.daterange-ranges span').html(moment().subtract('days', 29).format('MMM D, YYYY') + ' - ' + moment().format('MMM D, YYYY'));
+    $('.daterange-ranges span').html(moment().format('MMM D, YYYY') + ' - ' + moment().subtract('days', 29).format('MMM D, YYYY'));
 
 
 
@@ -105,7 +104,7 @@ $(function() {
 
     // Select2 selects
     $('.select').select2({
-        minimumResultsForSearch: "-1",
+        minimumResultsForSearch: Infinity,
         width: 220
     });
 
@@ -135,12 +134,11 @@ $(function() {
 
 
     // Styled checkboxes/radios
-    $(".styled, .multiselect-container input").uniform({ radioClass: 'choice', selectAutoWidth: false });
+    $(".styled, .multiselect-container input").uniform({ radioClass: 'choice'});
 
 
     // Styled file input
     $(".file-styled").uniform({
-        wrapperClass: 'bg-warning',
-        fileButtonHtml: '<i class="icon-googleplus5"></i>'
+        fileButtonClass: 'action btn bg-warning-400'
     });
 });

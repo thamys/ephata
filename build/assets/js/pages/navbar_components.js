@@ -17,7 +17,7 @@ $(function() {
 
     // Fixed width
     $('.select').select2({
-        minimumResultsForSearch: "-1",
+        minimumResultsForSearch: Infinity,
         width: '200px',
         dropdownCssClass: 'border-info-700'
     });
@@ -25,8 +25,7 @@ $(function() {
 
     // Full width
     $('.select-full').select2({
-        minimumResultsForSearch: "-1",
-        width: '100%'
+        minimumResultsForSearch: Infinity
     });
 
 
@@ -44,7 +43,7 @@ $(function() {
             startDate: moment().subtract('days', 29),
             endDate: moment(),
             minDate: '01/01/2014',
-            maxDate: '12/31/2015',
+            maxDate: '12/31/2018',
             dateLimit: {
                 days: 60
             },
@@ -80,7 +79,7 @@ $(function() {
             startDate: moment().subtract('days', 29),
             endDate: moment(),
             minDate: '01/01/2014',
-            maxDate: '12/31/2015',
+            maxDate: '12/31/2018',
             dateLimit: { days: 60 },
             ranges: {
                 'Today': [moment(), moment()],
@@ -115,6 +114,15 @@ $(function() {
     });
 
 
+    // Multiselect
+    $('.multiselect').multiselect({
+        buttonWidth: 200,
+        onChange: function() {
+            $.uniform.update();
+        }
+    });
+
+
     // Styled checkboxes, radios
     $(".styled, .multiselect-container input").uniform({
         radioClass: 'choice'
@@ -123,8 +131,8 @@ $(function() {
 
     // Styled file input
     $(".file-styled").uniform({
-        fileButtonHtml: '<i class="icon-googleplus5"></i>',
-        wrapperClass: 'bg-warning-300'
+        fileButtonClass: 'action btn btn-default btn-icon',
+        fileButtonHtml: '<i class="icon-upload"></i>'
     });
     
 });

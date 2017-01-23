@@ -4,8 +4,8 @@
 *
 *  Specific JS code additions for table_elements.html page
 *
-*  Version: 1.0
-*  Latest update: Aug 1, 2015
+*  Version: 1.1
+*  Latest update: Nov 25, 2015
 *
 * ---------------------------------------------------------------------------- */
 
@@ -29,7 +29,7 @@ $(function() {
 
     // Select2 basic
     $('.select').select2({
-        minimumResultsForSearch: '-1'
+        minimumResultsForSearch: Infinity
     });
 
 
@@ -37,18 +37,20 @@ $(function() {
     // Select2 with icons
     //
 
-    // Add icons
-    function iconFormat(state) {
-        var originalOption = state.element;
-        return "<i class='icon-" + $(originalOption).data('icon') + "'></i>" + state.text;
+    // Format icon
+    function iconFormat(icon) {
+        var originalOption = icon.element;
+        if (!icon.id) { return icon.text; }
+        var $icon = "<i class='icon-" + $(icon.element).data('icon') + "'></i>" + icon.text;
+
+        return $icon;
     }
 
-    // Initialize
+    // Initialize with options
     $(".select-actions").select2({
-        minimumResultsForSearch: -1,
-        formatResult: iconFormat,
-        width: '100%',
-        formatSelection: iconFormat,
+        templateResult: iconFormat,
+        minimumResultsForSearch: Infinity,
+        templateSelection: iconFormat,
         escapeMarkup: function(m) { return m; }
     });
 
@@ -64,10 +66,10 @@ $(function() {
     // Change select state on toggle
     controls.onchange = function() {
         if(controls.checked) {
-            $('#available_controls').select2("enable", true);
+            $('#available_controls').prop("disabled", false);
         }
         else {
-            $('#available_controls').select2("enable", false);
+            $('#available_controls').prop("disabled", true);
         }
     };
 
@@ -193,16 +195,11 @@ $(function() {
     // Multiple files uploader
     $('.bootstrap-uploader').fileinput({
         browseLabel: 'Browse',
-        browseClass: 'btn btn-primary',
-        removeLabel: '',
-        uploadLabel: '',
-        browseIcon: '',
-        uploadIcon: '<i class="icon-upload"></i> ',
-        removeClass: 'btn btn-danger btn-icon',
-        uploadClass: 'btn btn-default btn-icon',
-        removeIcon: '<i class="icon-remove3"></i> ',
+        browseIcon: '<i class="icon-file-plus"></i>',
+        uploadIcon: '<i class="icon-file-upload2"></i>',
+        removeIcon: '<i class="icon-cross3"></i>',
         layoutTemplates: {
-            caption: '<div tabindex="-1" class="form-control file-caption {class}">\n' + '<span class="icon-file-plus kv-caption-icon"></span><div class="file-caption-name"></div>\n' + '</div>'
+            icon: '<i class="icon-file-check"></i>'
         },
         initialCaption: "No file selected"
     });
@@ -224,8 +221,7 @@ $(function() {
 
     // Styled file input
     $('.file-styled').uniform({
-        wrapperClass: 'bg-warning',
-        fileButtonHtml: '<i class="icon-googleplus5"></i>'
+        fileButtonClass: 'action btn bg-warning-400'
     });
     
 });

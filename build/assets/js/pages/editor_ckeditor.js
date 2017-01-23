@@ -79,7 +79,7 @@ $(function() {
 
     // We are using Select2 selects here
     $('.select').select2({
-        minimumResultsForSearch: '-1'
+        minimumResultsForSearch: Infinity
     })
 
 

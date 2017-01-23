@@ -107,7 +107,7 @@ $(function() {
             // Select2
             $('.select').select2({
                 width: '150px',
-                minimumResultsForSearch: "-1"
+                minimumResultsForSearch: Infinity
             });
 
             // Reverse last 3 dropdowns orientation
@@ -119,7 +119,7 @@ $(function() {
             $(this).find('tbody tr').slice(-3).find('.dropdown, .btn-group').removeClass('dropup');
 
             // Destroy Select2
-            $('.select').select2('destroy');
+            $('.select').select2().select2('destroy');
         }
     });
 
@@ -134,7 +134,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
     
 });

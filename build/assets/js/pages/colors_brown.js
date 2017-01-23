@@ -17,18 +17,20 @@ $(function() {
 
     // Basic select2
     $('.select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        containerCssClass: 'bg-brown'
     });
 
 
     // Select2 ultiselect item color
     $('.select-item-color').select2({
-        formatSelectionCssClass: function (data, container) { return "bg-brown"; }
+        containerCssClass: 'bg-brown'
     });
 
 
     // Select2 dropdown menu color
     $('.select-menu-color').select2({
+        containerCssClass: 'bg-brown',
         dropdownCssClass: 'bg-brown'
     });
 
@@ -100,8 +102,7 @@ $(function() {
 
     // File input
     $(".file-styled").uniform({
-        wrapperClass: 'bg-brown',
-        fileButtonHtml: '<i class="icon-cloud-upload2"></i>'
+        fileButtonClass: 'action btn bg-brown'
     });
 
 

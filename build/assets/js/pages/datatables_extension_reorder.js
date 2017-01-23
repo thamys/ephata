@@ -60,7 +60,7 @@ $(function() {
     // Predefined column ordering
     $('.datatable-reorder-predefined').DataTable({
         colReorder: {
-            order: [1, 3, 2, 4, 0]
+            order: [1, 3, 2, 4, 0, 5]
         }
     });
 
@@ -75,7 +75,8 @@ $(function() {
 
     // Enable Select2 select for the length option
     $('.dataTables_length select').select2({
-        minimumResultsForSearch: "-1"
+        minimumResultsForSearch: Infinity,
+        width: 'auto'
     });
     
 });

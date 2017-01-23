@@ -1,0 +1,7 @@
+/.idea/
+/build/*.html
+/build/_layouts/
+/build/_mixins/
+/build/_partials/
+/node_modules/
+/resources/limitless/

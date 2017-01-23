@@ -1,0 +1,32 @@
+doctype html
+html(lang='en')
+    head
+        include ../_partials/head
+    body
+        // Main navbar
+        include  ../_partials/header
+        // /main navbar
+        // Second navbar
+        include ../_partials/navbar
+        // /second navbar
+        // Page header
+        include  ../_partials/page-header
+        // /page header
+        // Page container
+        .page-container
+            // Page content
+            .page-content
+                // Main content
+                block content
+                // /main content
+            // /page content
+        // /page container
+        // Footer
+        .footer.text-muted
+            | &copy; 2017.
+            a(href='#') Ephata - Sistema interno para Igreja
+            |  by&nbsp;
+            a(href='#' target='_blank') Thamyres Guedes
+            |  &&nbsp;
+            a(href='#' target='_blank') Vinicius Fontoura
+        // /footer

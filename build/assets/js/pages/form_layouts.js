@@ -23,20 +23,22 @@ $(function() {
     // Select with icons
     //
 
-    // Initialize
+    // Format icon
+    function iconFormat(icon) {
+        var originalOption = icon.element;
+        if (!icon.id) { return icon.text; }
+        var $icon = "<i class='icon-" + $(icon.element).data('icon') + "'></i>" + icon.text;
+
+        return $icon;
+    }
+
+    // Initialize with options
     $(".select-icons").select2({
-        formatResult: iconFormat,
-        minimumResultsForSearch: "-1",
-        width: '100%',
-        formatSelection: iconFormat,
+        templateResult: iconFormat,
+        minimumResultsForSearch: Infinity,
+        templateSelection: iconFormat,
         escapeMarkup: function(m) { return m; }
     });
-
-    // Format icons
-    function iconFormat(state) {
-        var originalOption = state.element;
-        return "<i class='icon-" + $(originalOption).data('icon') + "'></i>" + state.text;
-    }
 
 
 
@@ -48,8 +50,7 @@ $(function() {
 
     // File input
     $(".file-styled").uniform({
-        fileButtonHtml: '<i class="icon-googleplus5"></i>',
-        wrapperClass: 'bg-warning'
+        fileButtonClass: 'action btn bg-pink-400'
     });
     
 });

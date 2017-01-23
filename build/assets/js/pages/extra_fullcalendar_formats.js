@@ -207,7 +207,8 @@ $(function() {
     // We're using Select2 for language select
     $('.select').select2({
         width: 100,
-        minimumResultsForSearch: '-1',
+        minimumResultsForSearch: Infinity,
+        containerCssClass: 'bg-slate-700',
         dropdownCssClass: 'bg-slate-700'
     });
     

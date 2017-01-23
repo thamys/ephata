@@ -93,8 +93,7 @@ $(function() {
 
     // Select2 selects
     $('.select').select2({
-        minimumResultsForSearch: "-1",
-        width: '100%'
+        minimumResultsForSearch: Infinity
     });
 
 
@@ -193,8 +192,7 @@ $(function() {
 
     // File input
     $(".file-styled").uniform({
-        wrapperClass: "bg-warning",
-        fileButtonHtml: '<i class="icon-googleplus5"></i>'
+        fileButtonClass: 'action btn bg-warning'
     });
 
 
